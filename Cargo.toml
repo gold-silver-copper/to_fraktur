@@ -1,6 +1,6 @@
 [package]
 name = "to_fraktur"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "Function that converts any string to fraktur font"
 license = "MIT OR Apache-2.0"
