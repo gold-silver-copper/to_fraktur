@@ -90,7 +90,7 @@ cargo test
 
 ## License
 
-This project is available under your choice of license.
+This project is available under MIT or APACHE license
 
 ## Contributing
 
