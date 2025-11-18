@@ -1,5 +1,8 @@
 # Fraktur Text Converter
 
+[![Crates.io](https://img.shields.io/crates/v/to_fraktur.svg)](https://crates.io/crates/to_fraktur)
+[![Documentation](https://docs.rs/to_fraktur/badge.svg)](https://docs.rs/to_fraktur)
+
 A minimal Rust library for converting ASCII text to Fraktur (Gothic) Unicode characters.
 
 ## Features
@@ -16,13 +19,13 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-fraktur = "0.1.0"
+to_fraktur = "0.1.0"
 ```
 
 ### Basic Example
 
 ```rust
-use fraktur::{to_fraktur, to_fraktur_bold};
+use to_fraktur::{to_fraktur, to_fraktur_bold};
 
 fn main() {
     let text = "Hello World!";
