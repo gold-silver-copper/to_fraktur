@@ -19,7 +19,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-to_fraktur = "0.1.0"
+to_fraktur = "0.1.2"
 ```
 
 ### Basic Example
