@@ -2,5 +2,7 @@
 name = "to_fraktur"
 version = "0.1.0"
 edition = "2024"
-
+description = "Function that converts any string to fraktur font"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/gold-silver-copper/to_fraktur"
 [dependencies]

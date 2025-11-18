@@ -24,6 +24,32 @@ pub fn to_fraktur(text: &str) -> String {
         .collect()
 }
 
+pub fn to_fraktur_bold(text: &str) -> String {
+    const UPPER: [char; 26] = [
+        '𝕬', '𝕭', '𝕮', '𝕯', '𝕰', '𝕱', '𝕲', '𝕳', '𝕴', '𝕵', '𝕶', '𝕷', '𝕸', '𝕹', '𝕺', '𝕻', '𝕼', '𝕽',
+        '𝕾', '𝕿', '𝖀', '𝖁', '𝖂', '𝖃', '𝖄', '𝖅',
+    ];
+
+    const LOWER: [char; 26] = [
+        '𝖆', '𝖇', '𝖈', '𝖉', '𝖊', '𝖋', '𝖌', '𝖍', '𝖎', '𝖏', '𝖐', '𝖑', '𝖒', '𝖓', '𝖔', '𝖕', '𝖖', '𝖗',
+        '𝖘', '𝖙', '𝖚', '𝖛', '𝖜', '𝖝', '𝖞', '𝖟',
+    ];
+
+    text.chars()
+        .map(|c| {
+            if c.is_ascii_alphabetic() {
+                if c.is_ascii_uppercase() {
+                    UPPER[(c as u8 - b'A') as usize]
+                } else {
+                    LOWER[(c as u8 - b'a') as usize]
+                }
+            } else {
+                c
+            }
+        })
+        .collect()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -46,5 +72,20 @@ mod tests {
     #[test]
     fn test_non_alphabetic() {
         assert_eq!(to_fraktur("123 !@#"), "123 !@#");
+    }
+
+    #[test]
+    fn test_bold_uppercase() {
+        assert_eq!(to_fraktur_bold("HELLO"), "𝕳𝕰𝕷𝕷𝕺");
+    }
+
+    #[test]
+    fn test_bold_lowercase() {
+        assert_eq!(to_fraktur_bold("world"), "𝖜𝖔𝖗𝖑𝖉");
+    }
+
+    #[test]
+    fn test_bold_mixed() {
+        assert_eq!(to_fraktur_bold("Hello World!"), "𝕳𝖊𝖑𝖑𝖔 𝖂𝖔𝖗𝖑𝖉!");
     }
 }
